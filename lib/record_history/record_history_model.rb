@@ -2,6 +2,7 @@ require 'base64'
 
 class RecordHistoryModel < ActiveRecord::Base
   self.table_name = "record_histories"
+  attr_accessible :item_type, :item_id, :attr_name, :old_value, :new_value, :author, :transaction_id
 
   belongs_to :item, :polymorphic => true
   belongs_to :author, :polymorphic => true
