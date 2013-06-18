@@ -64,7 +64,8 @@ module RecordHistory
                     :old_value => self.send("#{attr_name}_was"),
                     :new_value => self.send("#{attr_name}"),
                     :author => RecordHistory.author,
-                    :transaction_id => Time.now.to_f
+                    :transaction_id => Time.now.to_f,
+                    :reason => (self.respond_to?('record_history_reason') ? self.record_history_reason : nil)
           )
         end
         self.record_history_polymorphic_group.each do |attr|
